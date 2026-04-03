@@ -26,12 +26,12 @@
 ```bash
 claude mcp add feishu-project \
   --transport streamable-http \
-  --url https://project.feishu.cn/api/mcp/v1/mcp/stream \
+  --url <feishu-project-mcp-endpoint> \
   --header "X-USER-KEY: <your-user-key>" \
   --header "X-PLUGIN-TOKEN: <your-plugin-token>"
 ```
 
-> Get your `X-USER-KEY` and `X-PLUGIN-TOKEN` from the [Feishu Project MCP integration settings](https://project.feishu.cn/).
+> Get your MCP endpoint URL and credentials from the Feishu Project MCP integration settings in your Feishu workspace.
 
 ### 2. Install the Skill
 
@@ -99,12 +99,12 @@ You should see `feishu-project` connected. Then try:
 ### 📋 进行中的待办 (2)
 | 工作项 | 状态 | 排期 | 所属空间 |
 |--------|------|------|----------|
-| BOSS战BGM正式制作 | 未完成 | 03/24 ~ 04/13 | WorldX |
-| 宁静之岛正式音乐制作 | 未完成 | 04/06 ~ 04/10 | WorldX |
+| 任务A | 未完成 | 03/24 ~ 04/13 | ProjectX |
+| 任务B | 未完成 | 04/06 ~ 04/10 | ProjectX |
 
 ### 💡 今日建议
-- BOSS战BGM 已进入排期中段，建议持续推进
-- 宁静之岛 04/06开始，可提前做前期准备
+- 任务A 已进入排期中段，建议持续推进
+- 任务B 04/06开始，可提前做前期准备
 ```
 
 ### Smart Planning
@@ -113,25 +113,18 @@ You should see `feishu-project` connected. Then try:
 ## 📅 今日工作规划 (2026-04-03)
 
 ### 🟢 本周推进 (P2)
-1. BOSS战BGM — 04/13到期，剩余10天
-   - 需求负责人: 秦迪 | 验收人: 秦迪、汪岩嵩
-2. 宁静之岛音乐 — 04/06开始，3天准备期
-   - 需求负责人: 张博文 | 验收人: 张博文
+1. 任务A — 04/13到期，剩余10天
+   - 需求负责人: 成员A | 验收人: 成员A、成员B
+2. 任务B — 04/06开始，3天准备期
+   - 需求负责人: 成员C | 验收人: 成员C
 
 ### ⚠️ 负荷评估
 P0+P1 共 0 项，当前待办共 2 项，工作量适中。
 ```
 
-## MQL Query Tips
+## Query Tips
 
-When using `search_by_mql`, field names **must be in Chinese**:
-
-| Field | Correct | Wrong |
-|-------|---------|-------|
-| Created time | `` `创建时间` `` | `` `created_at` `` |
-| Priority | `` `优先级` `` | `` `priority` `` |
-| Status | `` `状态` `` | `` `status` `` |
-| Name | `` `name` `` | (this one works) |
+When searching work items, field names **must be in Chinese** (e.g. `创建时间`, `优先级`, `状态`). English field names will cause errors.
 
 ## Automation (Optional)
 
@@ -162,10 +155,7 @@ Claude Code
     │   └── Feature 4: Smart Planning
     │
     └── MCP: feishu-project (Streamable HTTP)
-        ├── list_todo
-        ├── search_by_mql
-        ├── get_workitem_brief
-        └── ... (50+ tools)
+        └── Feishu Project API tools
 ```
 
 ## License
