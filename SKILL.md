@@ -74,9 +74,9 @@ When the user asks about today's tasks (or this is triggered as a morning routin
 When the user asks for a weekly summary (or this is triggered on Friday):
 
 ### Steps
-1. Query completed work items, then filter for this week
+1. Query the user's completed (已办) work items. The done list contains ALL historically completed items, not just this week's. You MUST filter by date to only show items completed during the current week (Mon~Sun). Iterate through pages if needed. Check each item's completion time — include only items where the completion date falls within the current week.
 2. Query items still in progress
-3. Optionally get briefs of key items for more context
+3. Get briefs of completed items and key in-progress items for more context (completion date, roles, etc.)
 
 ### Output Format
 
