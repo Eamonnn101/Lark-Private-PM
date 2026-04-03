@@ -2,7 +2,7 @@
 
 > A Claude Code skill that turns Claude into your personal PM assistant, powered by Feishu/Lark Project MCP.
 
-飞书项目私人PM助手 — 基于 Claude Code Skill + 飞书项目 MCP，让 Claude 成为你的个人项目经理。
+飞书项目私人PM助手 — 基于 Claude Code Skill + 飞书项目 MCP，让 AI 成为你的个人项目经理。
 
 ## Features
 
